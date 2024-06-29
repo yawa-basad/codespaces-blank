@@ -14,13 +14,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const id = params.id;
 
   // fetch data
-  const product = await fetch(`http://localhost:3001/products/${id}`);
+  const product = await fetch(`https://manaboss-default-rtdb.firebaseio.com/tx/${id}.json`);
   const resMetadata = await product.json();
 
+ 
   return {
     title: resMetadata.title,
     description: resMetadata.description,
-  };
+    icons: {
+        icon: "https://opensea.io/static/images/favicon/32x32.png", apple: "https://opensea.io/static/images/favicon/32x32.png" 
+    },
+    // openGraph: {
+    //   images: product.image,
+    // },
+  }
+
+  
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
