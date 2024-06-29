@@ -23,9 +23,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     icons: {
         icon: "https://opensea.io/static/images/favicon/32x32.png", apple: "https://opensea.io/static/images/favicon/32x32.png" 
     },
-    // openGraph: {
-    //   images: product.image,
-    // },
+    openGraph: {
+        title: 'Next.js',
+        description: 'The React Framework for the Web',
+        url: 'https://nextjs.org',
+        siteName: 'Next.js',
+        images: [
+          {
+            url: 'https://m.media-amazon.com/images/I/61cM1GK+vlL._AC_UF894,1000_QL80_.jpg', // Must be an absolute URL
+            width: 800,
+            height: 600,
+          },
+          {
+            url: 'https://m.media-amazon.com/images/I/61cM1GK+vlL._AC_UF894,1000_QL80_.jpg', // Must be an absolute URL
+            width: 1800,
+            height: 1600,
+            alt: 'My custom alt',
+          },
+        ],
+        locale: 'en_US',
+        type: 'website',
+      },
   }
 
   
