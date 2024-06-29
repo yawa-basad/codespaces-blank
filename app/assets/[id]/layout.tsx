@@ -6,12 +6,11 @@ const inter = Inter({ subsets: ["latin"] });
 
 type Props = {
   params: { id: string };
-  searchParams: { [key: string]: string | string[] | undefined };
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // read route params
-  const id = params.id;
+  const { id } = params;
 
   // fetch data
   const product = await fetch(`https://manaboss-default-rtdb.firebaseio.com/tx/${id}.json`);
@@ -19,8 +18,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
  
   return {
-    title: resMetadata.title,
-    description: resMetadata.description,
+    title: `${resMetadata.title}`,
+    description: `${resMetadata.description}`,
     icons: {
         icon: "https://opensea.io/static/images/favicon/32x32.png", apple: "https://opensea.io/static/images/favicon/32x32.png" 
     },
